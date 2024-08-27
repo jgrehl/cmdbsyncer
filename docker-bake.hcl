@@ -1,5 +1,5 @@
 group "default" {
-	targets = ["debian-latest", "alpine-latest", "debian-19", "debian-18", "debian-17", "debian-16", "debian-11", "alpine-19", "alpine-18", "alpine-17", "alpine-16", "alpine-11"]
+	targets = ["debian-latest", "debian-19", "debian-18", "debian-17", "debian-16", "debian-11"]
 }
 
 variable "REGISTRY_PREFIX" {
@@ -16,12 +16,7 @@ variable "BUILD_REVISION" {
 
 target "debian" {
 	args = {"GOCRONVER" = "v0.0.10"}
-	dockerfile = "debian.Dockerfile"
-}
-
-target "alpine" {
-	args = {"GOCRONVER" = "v0.0.10"}
-	dockerfile = "alpine.Dockerfile"
+	dockerfile = "Dockerfile"
 }
 
 
@@ -36,17 +31,6 @@ target "debian-latest" {
 	]
 }
 
-target "alpine-latest" {
-	inherits = ["alpine"]
-	platforms = ["linux/amd64"]
-	args = {"BASETAG" = "20-alpine"}
-	tags = [
-		"${REGISTRY_PREFIX}${IMAGE_NAME}:alpine",
-		"${REGISTRY_PREFIX}${IMAGE_NAME}:20-alpine",
-		notequal("", BUILD_REVISION) ? "${REGISTRY_PREFIX}${IMAGE_NAME}:20-alpine-${BUILD_REVISION}" : ""
-	]
-}
-
 target "debian-19" {
 	inherits = ["debian"]
 	platforms = ["linux/amd64", "linux/arm64"]
@@ -54,16 +38,6 @@ target "debian-19" {
 	tags = [
 		"${REGISTRY_PREFIX}${IMAGE_NAME}:19",
 		notequal("", BUILD_REVISION) ? "${REGISTRY_PREFIX}${IMAGE_NAME}:19-debian-${BUILD_REVISION}" : ""
-	]
-}
-
-target "alpine-19" {
-	inherits = ["alpine"]
-	platforms = ["linux/amd64"]
-	args = {"BASETAG" = "19-alpine"}
-	tags = [
-		"${REGISTRY_PREFIX}${IMAGE_NAME}:19-alpine",
-		notequal("", BUILD_REVISION) ? "${REGISTRY_PREFIX}${IMAGE_NAME}:19-alpine-${BUILD_REVISION}" : ""
 	]
 }
 
@@ -77,15 +51,6 @@ target "debian-18" {
 	]
 }
 
-target "alpine-18" {
-	inherits = ["alpine"]
-	platforms = ["linux/amd64"]
-	args = {"BASETAG" = "18-alpine"}
-	tags = [
-		"${REGISTRY_PREFIX}${IMAGE_NAME}:18-alpine",
-		notequal("", BUILD_REVISION) ? "${REGISTRY_PREFIX}${IMAGE_NAME}:18-alpine-${BUILD_REVISION}" : ""
-	]
-}
 
 target "debian-17" {
 	inherits = ["debian"]
@@ -94,16 +59,6 @@ target "debian-17" {
 	tags = [
 		"${REGISTRY_PREFIX}${IMAGE_NAME}:17",
 		notequal("", BUILD_REVISION) ? "${REGISTRY_PREFIX}${IMAGE_NAME}:17-debian-${BUILD_REVISION}" : ""
-	]
-}
-
-target "alpine-17" {
-	inherits = ["alpine"]
-	platforms = ["linux/amd64"]
-	args = {"BASETAG" = "17-alpine"}
-	tags = [
-		"${REGISTRY_PREFIX}${IMAGE_NAME}:17-alpine",
-		notequal("", BUILD_REVISION) ? "${REGISTRY_PREFIX}${IMAGE_NAME}:17-alpine-${BUILD_REVISION}" : ""
 	]
 }
 
@@ -117,16 +72,6 @@ target "debian-16" {
 	]
 }
 
-target "alpine-16" {
-	inherits = ["alpine"]
-	platforms = ["linux/amd64"]
-	args = {"BASETAG" = "16-alpine"}
-	tags = [
-		"${REGISTRY_PREFIX}${IMAGE_NAME}:16-alpine",
-		notequal("", BUILD_REVISION) ? "${REGISTRY_PREFIX}${IMAGE_NAME}:16-alpine-${BUILD_REVISION}" : ""
-	]
-}
-
 target "debian-11" {
 	inherits = ["debian"]
 	platforms = ["linux/amd64", "linux/arm64"]
@@ -137,12 +82,3 @@ target "debian-11" {
 	]
 }
 
-target "alpine-11" {
-	inherits = ["alpine"]
-	platforms = ["linux/amd64"]
-	args = {"BASETAG" = "11-alpine"}
-	tags = [
-		"${REGISTRY_PREFIX}${IMAGE_NAME}:11-alpine",
-		notequal("", BUILD_REVISION) ? "${REGISTRY_PREFIX}${IMAGE_NAME}:11-alpine-${BUILD_REVISION}" : ""
-	]
-}
