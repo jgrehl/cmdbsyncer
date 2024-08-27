@@ -1,10 +1,10 @@
 [![Docker Pulls](https://badgen.net/docker/pulls/jgrehl/cmdbsyncer?icon=docker&label=pulls)](https://hub.docker.com/r/jgrehl/cmdbsyncer/)
 [![Docker Stars](https://badgen.net/docker/stars/jgrehl/cmdbsyncer?icon=docker&label=stars)](https://hub.docker.com/r/jgrehl/cmdbsyncer/)
 [![Docker Image Size](https://badgen.net/docker/size/jgrehl/cmdbsyncer?icon=docker&label=image%20size)](https://hub.docker.com/r/jgrehl/cmdbsyncer/)
-![Github stars](https://badgen.net/github/stars/jgrehl/docker-cmdbsyncer?icon=github&label=stars)
-![Github forks](https://badgen.net/github/forks/jgrehl/docker-cmdbsyncer?icon=github&label=forks)
-![Github issues](https://img.shields.io/github/issues/jgrehl/docker-cmdbsyncer)
-![Github last-commit](https://img.shields.io/github/last-commit/jgrehl/docker-cmdbsyncer)
+![Github stars](https://badgen.net/github/stars/jgrehl/cmdbsyncer?icon=github&label=stars)
+![Github forks](https://badgen.net/github/forks/jgrehl/cmdbsyncer?icon=github&label=forks)
+![Github issues](https://img.shields.io/github/issues/jgrehl/cmdbsyncer)
+![Github last-commit](https://img.shields.io/github/last-commit/jgrehl/cmdbsyncer)
 
 # CMDB Syncer
 
