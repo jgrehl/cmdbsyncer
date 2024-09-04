@@ -3,6 +3,10 @@ version: "3.3"
 services:
 
   api:
+    image: jgrehl/cmdbsyncer:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
