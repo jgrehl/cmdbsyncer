@@ -1,4 +1,4 @@
-name: CI
+lname: CI
 
 on:
   push:
@@ -43,10 +43,7 @@ jobs:
       - name: Deploy with Docker Compose
         run: |
           docker-compose -f docker-compose.prod.yml up -d
-
-      - name: Tag images
-        run: docker tag cmdbdsyncer:latest ${{ secrets.DOCKERHUB_USERNAME }}/cmdbdsyncer:latest
-
+          
       - name: Push images
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/cmdbdsyncer:latest
 
